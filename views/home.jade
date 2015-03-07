@@ -1,0 +1,11 @@
+extends layout
+
+block body
+  block search
+    textarea.search
+    a(data-pjax-results, href='/results') update
+  #results
+    block results
+      .cars blk res
+      //- include results
+    //- .cars cars

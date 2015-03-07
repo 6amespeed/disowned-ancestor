@@ -1,0 +1,42 @@
+{
+  "name": "bouy",
+  "version": "1.0.0",
+  "description": "Trust based search engine; votable links.",
+  "private": true,
+  "dependencies": {
+    "browserify-middleware": "=5.0.1",
+    "express": "=4.12.1",
+    "jade": "=1.9.2",
+    "jquery": "=2.1.3",
+    "less-middleware": "=2.0.1",
+    "new-pjax": "=1.9.7",
+    "onchange": "=1.0.0",
+    "pjax": "=0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "style": "eslint scripts/*.js reporter/*.js test/**/*.js",
+    "test": "karma start --single-run",
+    "test:Chrome": "karma start --single-run --browsers Chrome",
+    "check": "npm run style && npm run test",
+    "check:Chrome": "npm run style && npm run test:Chrome",
+    "start": "node server.js",
+    "build:demo": "npm run build:bundle && ./scripts/build-demo.js",
+    "build:jquery": "jquery-builder --exclude ajax,deprecated,css,dimensions,effects,offset -m > vendor/jquery-1.11.1-custom.min.js",
+    "build:bundle": "mkdir -p dist && browserify -t partialify reporter/main.js > dist/pnr.js && echo \"// $(git rev-parse HEAD)\" | cat > _temp_build && cat dist/pnr.js >> _temp_build && mv _temp_build dist/pnr.js",
+    "check:git-clean": "git diff-files --quiet",
+    "preupload:development": "npm run build:bundle && npm run check",
+    "upload:development": "./scripts/upload.js",
+    "upload:dev": "npm run upload:development",
+    "preupload:staging": "npm run check:git-clean && npm run build:bundle && npm run check",
+    "upload:staging": "NODE_ENV=staging ./scripts/upload.js",
+    "preupload:production": "npm run check:git-clean && npm run build:bundle && npm run check",
+    "upload:production": "NODE_ENV=production ./scripts/upload.js",
+    "upload:prod": "npm run upload:production",
+    "watch:style": "onchange 'reporter/*.js' 'scripts/*.js' 'test/**/*.js' -- npm run style",
+    "watch:test": "karma start",
+    "watch:demo": "onchange 'demo/index.html.hbars' 'reporter/*.*' 'vendor/*.js' -- npm run build:demo"
+  },
+  "author": "Carson Banov <cbanov3@gmail.com>",
+  "license": "All Rights Reserved"
+}
