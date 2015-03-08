@@ -1,18 +1,21 @@
 var PORT_NUMBER, app, home, b;
+var _ = require('underscore');
 var jade = require("jade");
 var lessMiddleware = require('less-middleware');
 var express = require("express");
 var browserify = require('browserify-middleware');
+var bodyParser = require("body-parser");
 
 home = __dirname;
 
 app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("views", home + "/views");
 app.set("view engine", "jade");
 
-app.use(lessMiddleware(home + '/style'));
-app.use("/style", express.static(home + "/style"));
+app.use(lessMiddleware(home + '/style', {debug: true}));
+app.use(express.static(home + "/style"));
 
 app.get('/client/main.js', browserify(home + '/client/main.js'));
 
@@ -24,9 +27,9 @@ app.get("/", function(req, res) {
   return res.render("home");
 });
 
-app.get("/results", function(req, res) {
-  console.log(req.headers);
-  return res.render("results");
+app.post("/results", function(req, res) {
+  console.log(req.body);
+  return res.render("results", req.body);
 });
 
 // app.get("/games/:id", function(req, res) {
