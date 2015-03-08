@@ -1,0 +1,6 @@
+# Exclude local.
+/local/
+/local_*
+
+# No node modules.
+/node_modules/
