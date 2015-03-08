@@ -10,9 +10,7 @@
     "jade": "=1.9.2",
     "jquery": "=2.1.3",
     "less-middleware": "=2.0.1",
-    "new-pjax": "=1.9.7",
     "onchange": "=1.0.0",
-    "pjax": "=0.2.1",
     "underscore": "=1.8.2"
   },
   "devDependencies": {},
