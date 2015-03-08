@@ -53,7 +53,7 @@ app.get("/results", function(req, res) {
 
 PORT_NUMBER = 6060;
 
-app.listen(PORT_NUMBER);
+app.listen(process.env.PORT || PORT_NUMBER);
 
 console.log("Express app started on port %d", PORT_NUMBER);
 
