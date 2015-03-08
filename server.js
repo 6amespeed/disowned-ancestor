@@ -32,6 +32,11 @@ app.post("/results", function(req, res) {
   return res.render("results", req.body);
 });
 
+// app.post("/results2", function(req, res) {
+//   console.log(req.body);
+//   return res.render("results", {someresult: "awdianwoidnand"});
+// });
+
 // app.get("/games/:id", function(req, res) {
 //   if (req.headers["x-pjax"] != null) {
 //     return res.render("game-partial", {

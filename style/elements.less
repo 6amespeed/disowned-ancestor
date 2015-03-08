@@ -1,14 +1,12 @@
 .button {
+  .outlined();
   width: 110px;
   height: 14px;
   padding: 6px 5px 10px;
-  border: 2px solid @outline;
-  border-radius: 8px;
   margin: 5px;
   text-align: center;
   font-size: 14px;
   color: @text;
-  font-weight: bold;
   text-decoration: none;
   background-color: white;
   cursor: pointer;
@@ -18,6 +16,27 @@
   }
 }
 
-.button-depressed {
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.depressed {
   font-size: 13px;
+}
+
+.outlined {
+  padding: 5px;
+  margin: 5px;
+  color: @text;
+  background-color: white;
+  border: 2px solid @outline;
+  border-radius: 6px;
 }
