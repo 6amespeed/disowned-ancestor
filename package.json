@@ -37,6 +37,6 @@
     "watch:test": "karma start",
     "watch:demo": "onchange 'demo/index.html.hbars' 'reporter/*.*' 'vendor/*.js' -- npm run build:demo"
   },
-  "author": "Carson Banov <cbanov3@gmail.com>",
+  "author": "Carson Banov <6amespeed@gmail.com>",
   "license": "All Rights Reserved"
 }
