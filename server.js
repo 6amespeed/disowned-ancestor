@@ -5,6 +5,7 @@ var lessMiddleware = require('less-middleware');
 var express = require("express");
 var browserify = require('browserify-middleware');
 var bodyParser = require("body-parser");
+var google = require("./server/google");
 
 home = __dirname;
 
