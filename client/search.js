@@ -5,7 +5,10 @@ var getSearch = function() {
 $( '.update' ).serve("click", {
   container: "#results",
   url: "/results",
-  data: getSearch
+  data: getSearch,
+  onsuccess: function() {
+    $('.search').focus();
+  }
 });
 
 $( '.search' ).serve("keydown", {

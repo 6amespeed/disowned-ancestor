@@ -2,10 +2,16 @@ body {
   background-color: @background;
   font-size: 14px;
   font-family: '.HelveticaNeueDeskInterface-Regular';
+  padding: 0;
+  margin: 5px;
 }
 
 textarea, input {
   outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
 
   &:focus, &:hover {
     border: 2px solid @active;
@@ -16,3 +22,7 @@ a {
   text-decoration: none;
 }
 
+div {
+  padding: 0;
+  margin: 0;
+}

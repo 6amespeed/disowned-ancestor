@@ -10,23 +10,19 @@
 (function( $ ) {
 
   $.fn.serve = function(evName, options) {
-    options = options || {};
-    target = this.attr("data-serve-target") || options.target || this.selector;
-    container = this.attr("data-serve-container") || options.container || this;
-    url = this.attr("data-serve-url") || options.url || "/";
-    onstart = options.onstart || function(){};
-    onsuccess = options.onsuccess || function(){};
-    onerror = options.onerror || function(){};;
-    waitCls = options.waitCls || "";
+    var options = options || {};
+    var target = this.attr("data-serve-target") || options.target || this.selector;
+    var container = this.attr("data-serve-container") || options.container || this;
+    var url = this.attr("data-serve-url") || options.url || "/";
+    var onstart = options.onstart || function(){};
+    var onsuccess = options.onsuccess || function(){};
+    var onerror = options.onerror || function(){};;
+    var waitCls = options.waitCls || "";
     if(typeof(options.data)==='function'){
-      console.log("function!");
-      // data = options.data();
       data = options.data;
     } else {
-      console.log("object!");
       data = function(){return options.data || {}};
     }
-    console.log("on: ", evName, " target ", target);
     $(document).on(evName, target, function(ev) {
       if(evName==='keydown'){
         if(ev.which!==13){
